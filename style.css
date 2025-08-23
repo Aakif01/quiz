@@ -74,6 +74,12 @@ p{
   margin: 0 0.5rem 0.5rem 0.5rem;
 }
 
+.correct{
+  background-color: #0eeb7c;
+}
+.wrong{
+  background-color: #E4080A;
+}
 @media (max-width: 690px){
     .opt{
        width: 100%;

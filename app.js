@@ -63,16 +63,38 @@ que.innerText = quizQuestions[i].question;
    opt.innerText = quizQuestions[i].options[j];
    j++;
  }
+
 }
- next.addEventListener("click", ()=>{
-   i++;
-   j=0;
-   update();
- });
+next.addEventListener("click", () => {
+  i++;
+  j = 0;
+
+  // Reset background by removing 'correct' class from all options
+  options.forEach(opt => {
+    opt.classList.remove("correct");
+    opt.classList.remove("wrong");
+    opt.disabled = false;
+  });
+
+  update();
+});
+
+ function correct(optn){
+   optn.classList.add("correct");
+ }
+ function wrong(optn){
+  optn.classList.add("wrong");
+ }
  function checkAnswer(){
     let optn = this;
     if(optn.innerText == quizQuestions[i].answer){
-        console.log("correct");
+       correct(optn)
+    } else{
+      wrong(optn)
+    }
+
+    for(opt of options){
+     opt.disabled = true;
     }
  }
  for(opt of options){
