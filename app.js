@@ -100,13 +100,20 @@ next.addEventListener("click", () => {
  function wrong(optn){
   optn.classList.add("wrong");
  }
+ function checkCorrect(){
+  for(opt of options){
+    if(opt.innerText == quizQuestions[i].answer){
+      correct(opt);
+    }
+  }
+ }
  function checkAnswer(){
     let optn = this;
     if(optn.innerText == quizQuestions[i].answer){
        correct(optn)
     } else{
       wrong(optn)
-      
+      checkCorrect()
     }
 
     for(opt of options){
