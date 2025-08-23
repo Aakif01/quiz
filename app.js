@@ -65,18 +65,33 @@ que.innerText = quizQuestions[i].question;
  }
 
 }
+// next.addEventListener("click", () => {
+//   i++;
+//   j = 0;
+
+//   // Reset background by removing 'correct' class from all options
+//   options.forEach(opt => {
+//     opt.classList.remove("correct");
+//     opt.classList.remove("wrong");
+//     opt.disabled = false;
+//   });
+
+//   update();
+// });
 next.addEventListener("click", () => {
-  i++;
-  j = 0;
-
-  // Reset background by removing 'correct' class from all options
-  options.forEach(opt => {
-    opt.classList.remove("correct");
-    opt.classList.remove("wrong");
-    opt.disabled = false;
-  });
-
-  update();
+  if (i < quizQuestions.length - 1) {
+    i++;
+    j = 0;
+    options.forEach(opt => {
+      opt.classList.remove("correct", "wrong");
+      opt.disabled = false;
+    });
+    update();
+  } else {
+    que.innerText = "Quiz completed!";
+    options.forEach(opt => opt.style.display = "none");
+    next.style.display = "none";
+  }
 });
 
  function correct(optn){
@@ -91,6 +106,7 @@ next.addEventListener("click", () => {
        correct(optn)
     } else{
       wrong(optn)
+      
     }
 
     for(opt of options){
