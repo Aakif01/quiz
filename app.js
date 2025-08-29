@@ -51,6 +51,8 @@ const quizQuestions = [
   }
 ];
 
+const crtAudio = new Audio('assets/correct.mp3');
+
 const que = document.querySelector(".que");
 const options = document.querySelectorAll(".opt");
 const next = document.querySelector(".nxt");
@@ -96,6 +98,7 @@ next.addEventListener("click", () => {
 
  function correct(optn){
    optn.classList.add("correct");
+   crtAudio.play();
  }
  function wrong(optn){
   optn.classList.add("wrong");
