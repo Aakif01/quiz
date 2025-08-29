@@ -51,7 +51,7 @@ const quizQuestions = [
   }
 ];
 
-const crtAudio = new Audio('assets/correct.mp3');
+const crtAudio = new Audio('assets/Correct.mp3');
 
 const que = document.querySelector(".que");
 const options = document.querySelectorAll(".opt");
